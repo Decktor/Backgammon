@@ -248,7 +248,7 @@ function passClicked() {
 }
 
 function loseClicked() {
-  const confirmationText  = 'Are you sure you want to leave the game?'
+  let confirmationText  = 'Are you sure you want to leave the game?'
   if (startedGame && !soloGame) {
     confirmationText += 'It will make you lose 600 points on the leaderboard'
   }
