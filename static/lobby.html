@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Lobby - Decktor's World of Backgammon</title>
+      <link rel="stylesheet" href="./css/styles.css">
+      <link rel='icon' href='./images/favicon.ico' type='image/x-icon'>
+    </head>
+
+    <body>
+        <div id="sidebar" class="sidebar">
+        </div>
+
+        <div class="main">
+            <canvas id="board-canvas"></canvas>
+        </div>
+
+        <script id="sidebar-template" type="text/html">
+            <button id="logout" onclick="logOutClicked()">Log Out</button>
+            <h2 class="room-title">Game Lobby</h2>
+            <h3 class="list-title">Players In Lobby:</h3>
+            <ul class="users">
+                {{#playersInLobby}}
+                    <li><a href="/static/game.html?opponent={{username}}" style="text-decoration: none; color: inherit;">{{rank}} - {{username}}</a></li>
+                {{/playersInLobby}}
+            </ul>
+        </script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/static/js/lobby.js"></script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login - Decktor's World of Backgammon</title>
+        <link rel="stylesheet" href="/static/css/styles.css">
+        <link rel='icon' href='./images/favicon.ico' type='image/x-icon'>
+    </head>
+
+    <body>
+        <div class="centered-form">
+            <div class="centered-form__box">
+                <h1>Log in</h1>
+                <form action="/login" method="POST">
+                    <label>Email</label>
+                    <input type="text" name="email" placeholder="email" required>
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button>Join</button>
+                    <a href="/static/signUp.html">Sign Up</a>
+
+                    <div id="messages"></div>
+                    <script id="message-template" type="text/html">
+                            <br>
+                            <p><font color="red">{{message}}</font></p>
+                        </div>
+                    </script>
+                    
+                </form>
+                <p></p>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="/static/js/getQueryVariable.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/static/js/login.js"></script>
+</html>

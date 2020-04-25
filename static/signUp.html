@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign Up - Decktor's World of Backgammon</title>
+        <link rel="stylesheet" href="/static/css/styles.css">
+        <link rel='icon' href='./images/favicon.ico' type='image/x-icon'>
+    </head>
+
+    <body>
+        <div class="centered-form">
+            <div class="centered-form__box">
+                <h1>Sign Up</h1>
+                <form action="/signup" method="POST">
+                    <label>Email</label>
+                    <input type="text" name="email" placeholder="Email" required>
+                    
+                    <div id="error"></div>
+                    <script id="error-template" type="text/html">
+                            <p><font color="red">{{emailErrorMessage}}</font></p>
+                    <label>Display Name</label>
+                    <input type="text" name="name" placeholder="Display name" required>
+                            <p><font color="red">{{nameErrorMessage}}</font></p>
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Sign Up</button>
+                            <p><font color="red">{{passwordErrorMessage}}</font></p>
+                    </script>
+
+                </form>
+                <p></p>
+                <a href="/static/index.html">Back to main page</a>
+
+                
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+        <script src="/static/js/getQueryVariable.js"></script>
+        <script src="/static/js/signUp.js"></script>
+    </body>
+</html>

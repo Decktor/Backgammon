@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Game - Decktor's World of Backgammon</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel='icon' href='./images/favicon.ico' type='image/x-icon'>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div>
+        <canvas id="sidebar-canvas"></canvas>
+      </div>
+      <button id="roll" onclick="rollClicked()">Roll Dice</button>
+      <button id="undo" onclick="undoClicked()">Undo Move</button>
+      <button id="pass" onclick="passClicked()">Pass Turn</button>
+      <div>
+        <br>
+        <button id="giveUp" onclick="loseClicked()">Leave Game</button>
+      </div>
+    </div>
+      
+    <div class="main">
+      <canvas id="board-canvas"></canvas>
+    </div>
+  </body>
+  <script src="/static/js/getQueryVariable.js"></script>
+  <script src="/static/js/parseCookie.js"></script>
+  <script src="/static/js/game.js"></script>
+</html>
