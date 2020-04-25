@@ -93,7 +93,7 @@ socket.on('won', function() {
 })
 
 socket.on('lost', function() {
-  alert('You won!')
+  alert('You lost!')
   window.location.href = "/static/lobby.html"
 })
 
