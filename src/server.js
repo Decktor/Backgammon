@@ -155,6 +155,7 @@ io.on('connection', async function(socket) {
         if (!existingSocket) {
           existingPlayer.sockets.push(socket.id)
         }
+        existingPlayer.rank = user.rank
       }
       next()
     } catch (e){
