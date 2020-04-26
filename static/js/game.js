@@ -248,7 +248,20 @@ function loseClicked() {
   if (startedGame && !soloGame) {
     confirmationText += 'It will make you lose 600 points on the leaderboard'
   }
-  if (confirm(confirmationText)) {
-    socket.emit('leave game')
-  }
+  $.confirm({
+    boxWidth: '70%',
+    useBootstrap: false,
+    title: confirmationText,
+    content: 'This dialog will close in 10 seconds if you don\'t respond.',
+    autoClose: 'Cancel|10000',
+    buttons: {
+      enterGame: {
+      text: 'leave game',
+          action: function () {
+            socket.emit('leave game')
+          }
+      },
+      Cancel: {}
+    }
+  })
 }
