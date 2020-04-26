@@ -87,12 +87,10 @@ socket.on('opponent left', function() {
 
 socket.on('won', function() {
   returnToLobbyAlert('You won!')
-  window.location.href = "/static/lobby.html"
 })
 
 socket.on('lost', function() {
   returnToLobbyAlert('You lost!')
-  window.location.href = "/static/lobby.html"
 })
 
 function drawSidebar(gameState) {
