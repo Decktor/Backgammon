@@ -169,7 +169,6 @@ io.on('connection', async function(socket) {
   })
 
   socket.on('challenge accepted', () => {
-    console.log('Challenge accepted')
     gameInstance.getGameState().startedGame = true
   }) 
 
@@ -271,7 +270,9 @@ io.on('connection', async function(socket) {
     if (!playerTwo) {
       socket.emit('back to lobby')
     } else if (playerOne.inGame !== true && playerTwo.inGame !== true) {
-      playerTwo.sockets.forEach(playerTwoSocket => { io.to(`${playerTwoSocket}`).emit('new game prompt', playerOne.username) })
+      if (playerTwo !== playerOne) {
+        playerTwo.sockets.forEach(playerTwoSocket => { io.to(`${playerTwoSocket}`).emit('new game prompt', playerOne.username) })
+      }
       let redPlayer
       let whitePlayer
       if (Math.random() > .5){

@@ -79,7 +79,6 @@ socket.on('authentication error', function(gameState) {
 })
 
 socket.on('back to lobby', function() {
-  console.log('back to lobby')
   window.location.href = "/static/lobby.html"
 })
 socket.on('opponent left', function() {
