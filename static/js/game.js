@@ -83,19 +83,37 @@ socket.on('back to lobby', function() {
   window.location.href = "/static/lobby.html"
 })
 socket.on('opponent left', function() {
-  alert('Your opponent has left the game')
-  window.location.href = "/static/lobby.html"
+  returnToLobbyAlert('Your opponent has left the game')
 })
 
 socket.on('won', function() {
-  alert('You won!')
+  returnToLobbyAlert('You won!')
   window.location.href = "/static/lobby.html"
 })
 
 socket.on('lost', function() {
-  alert('You lost!')
+  returnToLobbyAlert('You lost!')
   window.location.href = "/static/lobby.html"
 })
+
+function returnToLobbyAlert(alertText) {
+  $.confirm({
+    boxWidth: '90%',
+    useBootstrap: false,
+    title: alertText,
+    content: 'You will return to the lobby in 10 seconds.',
+    autoClose: 'OK|10000',
+    buttons: {
+      OK: {
+      buttonWidth: 200,
+      text: 'OK',
+          action: function () {
+            window.location.href = "/static/lobby.html"
+          }
+      },
+    }
+  })
+}
 
 function drawSidebar(gameState) {
   sideBarContext.clearRect(0,0,sidebarCanvas.width, sidebarCanvas.height)

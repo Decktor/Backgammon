@@ -243,7 +243,6 @@ class BackgammonGameInstance {
     this.roll = function (username) {
       {
         if (this.getUser(username).isWhite === this.gameState.isWhiteTurn || this.gameState.users[0].username === this.gameState.users[1].username) {
-          this.gameState.startedGame = true
           if (!this.gameState.rolledThisTurn) {
             this.gameState.dice.first = Math.ceil(Math.random() * 6)
             this.gameState.dice.second = Math.ceil(Math.random() * 6)

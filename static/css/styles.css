@@ -38,7 +38,7 @@ input {
     outline: none;
 }
 
-button {
+.sidebar button, .centered-form__box button {
     cursor: pointer;
     background: #7C5CBF;
     border: none;
@@ -50,11 +50,11 @@ button {
     font-family: "Lucida Console", Monaco, monospace;
 }
 
-button:hover {
+.sidebar button:hover, .centered-form__box button:hover {
     background: #6b47b8;
 }
 
-button:disabled {
+.sidebar button:disabled, .centered-form__box button:disabled {
     cursor: default;
     background: #7c5cbf94;
 }

@@ -51,11 +51,32 @@ socket.on('players in lobby', (playersInLobby) => {
 
 socket.on('new game prompt', (username) => {
   console.log('Challenged by', username)
-  if (confirm(`You were challenged by ${username} Would you like to start the game?`)){
-    window.location.href = "/static/game.html"
-  } else {
-      socket.emit('leave game')
-  }
+  $.confirm({
+    boxWidth: '90%',
+    useBootstrap: false,
+    title: `You were challenged by ${username}`,
+    content: 'You will return to the lobby in 10 seconds if you don\'t respond.',
+    autoClose: 'Cancel|10000',
+    buttons: {
+      enterGame: {
+      buttonWidth: 200,
+      text: 'Accept',
+          action: function () {
+            socket.emit('challenge accepted')
+            window.location.href = "/static/game.html"
+          }
+      },
+      Cancel: function () {
+        socket.emit('leave game')
+        $.alert({
+          boxWidth: '90%',
+          useBootstrap: false,
+          title: 'Game is canceled',
+          content: 'You will be redirected to the lobby'
+        });
+      }
+    }
+  })
 })
 
 socket.on('authentication error', () => {

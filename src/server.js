@@ -168,6 +168,11 @@ io.on('connection', async function(socket) {
     refreshClient()
   })
 
+  socket.on('challenge accepted', () => {
+    console.log('Challenge accepted')
+    gameInstance.getGameState().startedGame = true
+  }) 
+
   socket.on('at lobby', () => {
     const {username} = parseCookie(socket.handshake.headers.cookie)
     const existingPlayer = findPlayerByUsername(username)
