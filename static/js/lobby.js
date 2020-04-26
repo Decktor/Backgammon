@@ -34,7 +34,6 @@ function resizeWindow() {
 }
 
 function logOutClicked() {
-    console.log('Log out clicked')
     let form = document.createElement('form')
     form.setAttribute('method', 'post')
     form.setAttribute('action', '/logout')
@@ -50,7 +49,6 @@ socket.on('players in lobby', (playersInLobby) => {
 })
 
 socket.on('new game prompt', (username) => {
-  console.log('Challenged by', username)
   $.confirm({
     boxWidth: '90%',
     useBootstrap: false,
@@ -59,7 +57,6 @@ socket.on('new game prompt', (username) => {
     autoClose: 'Cancel|10000',
     buttons: {
       enterGame: {
-      buttonWidth: 200,
       text: 'Accept',
           action: function () {
             socket.emit('challenge accepted')
@@ -68,12 +65,7 @@ socket.on('new game prompt', (username) => {
       },
       Cancel: function () {
         socket.emit('leave game')
-        $.alert({
-          boxWidth: '90%',
-          useBootstrap: false,
-          title: 'Game is canceled',
-          content: 'You will be redirected to the lobby'
-        });
+        returnToLobbyAlert('You declined the challenge')
       }
     }
   })

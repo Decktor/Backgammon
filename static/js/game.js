@@ -95,25 +95,6 @@ socket.on('lost', function() {
   window.location.href = "/static/lobby.html"
 })
 
-function returnToLobbyAlert(alertText) {
-  $.confirm({
-    boxWidth: '90%',
-    useBootstrap: false,
-    title: alertText,
-    content: 'You will return to the lobby in 10 seconds.',
-    autoClose: 'OK|10000',
-    buttons: {
-      OK: {
-      buttonWidth: 200,
-      text: 'OK',
-          action: function () {
-            window.location.href = "/static/lobby.html"
-          }
-      },
-    }
-  })
-}
-
 function drawSidebar(gameState) {
   sideBarContext.clearRect(0,0,sidebarCanvas.width, sidebarCanvas.height)
   sideBarContext.font = "30px arial"
