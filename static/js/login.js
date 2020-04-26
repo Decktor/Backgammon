@@ -7,8 +7,7 @@ const html = Mustache.render(messageTemplate, {
 })
 document.querySelector('#messages').insertAdjacentHTML('beforeend', html)
 
-socket.on('back to lobby', function() {
-    console.log('back to lobby')
+socket.on('back to lobby', () => {
     window.location.href = "/static/lobby.html"
   })
 

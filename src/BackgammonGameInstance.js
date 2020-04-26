@@ -329,9 +329,7 @@ class BackgammonGameInstance {
       const losingPlayerOutPosition = this.gameState.won === 0 ? this.gameState.board[0] : this.gameState.board[25]
       const losingPlayerJail = this.gameState.won === 0 ? this.gameState.board[27] : this.gameState.board[26]
       const losingPlayerHasPiecesOnEnemyBase = this.hasPiecesOnEnemyBase(this.gameState.won === 0 ? true : false)
-
-      console.log('Won', this.gameState.won, 'losing out position', losingPlayerOutPosition.numOfPieces, 'losing jail',losingPlayerJail, 'has pieces on enemy base' ,losingPlayerHasPiecesOnEnemyBase)
-
+      
       if (losingPlayerOutPosition.numOfPieces > 0) {
         return 100
       }

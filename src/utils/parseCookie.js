@@ -1,4 +1,4 @@
-function parseCookie(cookie) {
+parseCookie = (cookie) => {
   try {
     let splitCookie = cookie.split('; ')
     let parsedCookie = {}

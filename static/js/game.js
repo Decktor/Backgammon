@@ -82,15 +82,15 @@ socket.on('back to lobby', function() {
   window.location.href = "/static/lobby.html"
 })
 socket.on('opponent left', function() {
-  returnToLobbyAlert('Your opponent has left the game')
+  alertAndReturnToLobby('Your opponent has left the game')
 })
 
 socket.on('won', function() {
-  returnToLobbyAlert('You won!')
+  alertAndReturnToLobby('You won!')
 })
 
 socket.on('lost', function() {
-  returnToLobbyAlert('You lost!')
+  alertAndReturnToLobby('You lost!')
 })
 
 function drawSidebar(gameState) {
@@ -257,7 +257,7 @@ function loseClicked() {
     buttons: {
       enterGame: {
       text: 'leave game',
-          action: function () {
+          action: () => {
             socket.emit('leave game')
           }
       },

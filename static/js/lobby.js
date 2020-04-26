@@ -58,14 +58,14 @@ socket.on('new game prompt', (username) => {
     buttons: {
       enterGame: {
       text: 'Accept',
-          action: function () {
+          action: () => {
             socket.emit('challenge accepted')
             window.location.href = "/static/game.html"
           }
       },
-      Cancel: function () {
+      Cancel: () => {
         socket.emit('leave game')
-        returnToLobbyAlert('You declined the challenge')
+        alertAndReturnToLobby('You declined the challenge')
       }
     }
   })

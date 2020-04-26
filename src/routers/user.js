@@ -37,14 +37,12 @@ router.post('/login',async (req, res) => {
         res.cookie('username', user.name)
         res.redirect('./static/lobby.html')
     } catch (e) {
-        console.log(e)
         res.redirect('./static/index.html?error=Invalid username or password')
     }
 })
 
 router.post('/logout', async (req,res) => {
     try {
-        console.log('Logout')
         let {username, token} = parseCookie(req.headers.cookie)
         currentToken = token
         let user = await User.verifyToken(username, currentToken)
@@ -54,7 +52,6 @@ router.post('/logout', async (req,res) => {
         await user.save()
         res.redirect('/')
     } catch (e) {
-        console.log(e)
         res.status(500).send()
     }
 })   

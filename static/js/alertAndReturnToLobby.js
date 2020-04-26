@@ -1,4 +1,4 @@
-function returnToLobbyAlert(alertText) {
+function alertAndReturnToLobby(alertText) {
     $.confirm({
       boxWidth: '90%',
       useBootstrap: false,
@@ -9,7 +9,7 @@ function returnToLobbyAlert(alertText) {
         OK: {
         buttonWidth: 200,
         text: 'OK',
-            action: function () {
+            action: () => {
               window.location.href = "/static/lobby.html"
             }
         },

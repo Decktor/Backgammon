@@ -59,7 +59,7 @@ checkIfPlayerWon = () => {
   }
 }
 
-async function updatePlayerScore(playerName, score) {
+updatePlayerScore = async (playerName, score) => {
   const player = playersInServer.filter(element => element.username === playerName)[0]
   await User.updateRank(player.username, player.token, score)
 }
@@ -136,9 +136,9 @@ addplayer = (user, socket, token) => {
   playersInServer.push(newPlayer)
 }
 
-io.on('connection', async function(socket) {
+io.on('connection', async (socket) => {
 
-  socket.use(async function(packet, next) {  
+  socket.use(async (packet, next) => {  
     try {
       const {username, token} = parseCookie(socket.handshake.headers.cookie)
       const user = await User.verifyToken(username, token)
