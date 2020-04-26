@@ -1,3 +1,4 @@
+require('./db/mongoose')
 const express = require('express')
 const http = require('http')
 const path = require('path')
@@ -9,7 +10,8 @@ const server = http.Server(app)
 const io = socketIO(server)
 const GameInstance = require('./BackgammonGameInstance')
 const parseCookie = require('./utils/parseCookie.js')
-require('./db/mongoose')
+
+const publicDirectoryPath = path.join(__dirname, '../static')
 
 const port = process.env.PORT
 const User = require('./models/user')
@@ -19,7 +21,6 @@ let currentGames = []
 let gameInstance
 
 app.set('port', port)
-const publicDirectoryPath = path.join(__dirname, '../static')
 app.use(express.urlencoded({extended: true}))
 
 app.use('/static', express.static(publicDirectoryPath))

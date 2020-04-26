@@ -31,7 +31,7 @@ class BackgammonGameInstance {
         { numOfPieces: 0, isWhite: false }, //White base
         { numOfPieces: 0, isWhite: false }, //White base
         { numOfPieces: 2, isWhite: false }, //White base
-        { numOfPieces: 0, isWhite: true }, //End position for white player
+        { numOfPieces: 0, isWhite: true },  //End position for white player
         { numOfPieces: 0, isWhite: true },  //Jail position for white player
         { numOfPieces: 0, isWhite: false }, //Jail position for red player
       ],
